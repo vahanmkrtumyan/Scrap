@@ -149,7 +149,7 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
     // code block
   }
 
-  if 
+
   
     // let cur5 = await page.evaluate(() => {
     //   return (

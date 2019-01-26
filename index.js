@@ -1,16 +1,21 @@
-const request = require('request-promise');
-const cheerio = require('cheerio');
-
-const URL = 'http://www.armbusinessbank.am/';
+const request = require("request-promise");
+const cheerio = require("cheerio");
+const fs = require("fs");
+const Json2csvParser = require("json2csv").Parser;
+const puppeteer = require("puppeteer");
 
 (async () => {
-    const response = await request(URL);
+  const browser = await puppeteer.launch({ headless: false });
+  const page = await browser.newPage();
+  await page.goto(
+    "https://internetbank.armbusinessbank.am/internetbank/MainForm.wgx"
+  );
+  await page.waitForSelector("#TRG_32");
+  await page.type("#TRG_32", "miparti1");
+  await page.type("#TRG_38", "123456");
+  await page.keyboard.press("Enter");
+  await page.waitFor(contains("name"));
+  await page.screenshot({ path: "example.png" });
 
-let $ = cheerio.load(response);
-
-let USDbuy = $(`div[id="noncashCurrency"] > table:nth-of-type(2) > tbody > tr:nth-of-type(1) > td:nth-of-type(2)`).text();
-let USDSell = $(`div[id="noncashCurrency"] > table:nth-of-type(2) > tbody > tr:nth-of-type(1) > td:nth-of-type(4)`).text();
-
-console.log(USDbuy, USDSell)
-
-})()
+  await browser.close();
+})();

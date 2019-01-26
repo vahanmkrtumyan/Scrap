@@ -25,32 +25,77 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
   await page.click("#VWGLE_100");
   await page.waitFor(4000);
 
-  await page.click('#VWG_194 > div > span');
+  await page.click("#VWG_194 > div > span");
 
   const respone = await request(URL);
 
   let $ = cheerio.load(respone);
 
-  let EUR = await page.evaluate(()=>{
-      return document.querySelector(`tr[id = "VWG_202"] > td:nth-child(10) > div > span`).innerText;
+  let cur1 = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(4) > div >span`
+    ).innerText;
   });
-  let USD = await page.evaluate(()=>{
-    return document.querySelector(`tr[id = "VWG_203"] > td:nth-child(10) > div > span`).innerText;
-});
-let RUB = await page.evaluate(()=>{
-    return document.querySelector(`tr[id = "VWG_204"] > td:nth-child(10) > div > span`).innerText;
-});
-let AMD = await page.evaluate(()=>{
-    return document.querySelector(`tr[id = "VWG_205"] > td:nth-child(10) > div > span`).innerText;
-});
-let AMD2 = await page.evaluate(()=>{
-    return document.querySelector(`tr[id = "VWG_205"] > td:nth-child(10) > div > span`).innerText;
-});
-let AMD3 = AMD + AMD2;
+  let cur1val = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(10) > div >span`
+    ).innerText;
+  });
+  let cur2 = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(2) > td:nth-child(4) > div >span`
+    ).innerText;
+  });
+  let cur2val = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(2) > td:nth-child(10) > div >span`
+    ).innerText;
+  });
+  let cur3 = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(3) > td:nth-child(4) > div >span`
+    ).innerText;
+  });
+  let cur3val = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(3) > td:nth-child(10) > div >span`
+    ).innerText;
+  });
+  let cur4 = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(4) > td:nth-child(4) > div >span`
+    ).innerText;
+  });
+  let cur4val = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(4) > td:nth-child(10) > div >span`
+    ).innerText;
+  });
+  let cur5 = await page.evaluate(() => {
+    return (
+      document.querySelector(
+        `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(5) > td:nth-child(4) > div >span`
+      ).innerText || 0
+    );
+  });
+  let cur5val = await page.evaluate(() => {
+    return document.querySelector(
+      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(5) > td:nth-child(10) > div >span`
+    ).innerText;
+  });
 
-  console.log(EUR, USD, RUB, AMD3);
-
-  
+  console.log(
+    cur1,
+    cur1val,
+    cur2,
+    cur2val,
+    cur3,
+    cur3val,
+    cur4,
+    cur4val,
+    cur5,
+    cur5val
+  );
 
   //   page.mainFrame().evaluate()
   // await page.mainFrame()

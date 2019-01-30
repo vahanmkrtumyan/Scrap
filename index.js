@@ -47,50 +47,54 @@ for (c of companies) {
 
   let $ = cheerio.load(respone);
 
+  
+
   let cur1 = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(4) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr > td:nth-child(4)`
     ).innerText;
   });
+  
   let cur1val = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(10) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr > td:nth-child(10)`
     ).innerText;
   });
+
   let cur2 = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(2) > td:nth-child(4) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2) > td:nth-child(4)`
     ).innerText;
   });
   let cur2val = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(2) > td:nth-child(10) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2) > td:nth-child(10)`
     ).innerText;
   });
   let cur3 = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(3) > td:nth-child(4) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(3) > td:nth-child(4)`
     ).innerText;
   });
   let cur3val = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(3) > td:nth-child(10) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(3) > td:nth-child(10)`
     ).innerText;
   });
   let cur4 = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(4) > td:nth-child(4) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(4) > td:nth-child(4)`
     ).innerText;
   });
   let cur4val = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(4) > td:nth-child(10) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(4) > td:nth-child(10)`
     ).innerText;
   });
 
   let Անվանում = await page.evaluate(() => {
     return document.querySelector(
-      `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(6) > div >span`
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr > td:nth-child(6)`
     ).innerText;
   });
 

@@ -8,7 +8,7 @@ var json2xls = require("json2xls");
 const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
 
 (async () => {
-  let hashivner = [];
+  let amsatver = [["01", "02", "2018"], ["10", "02", "2018"]];
 
   const browser = await puppeteer.launch({
     args: ["--disable-features=site-per-process"],
@@ -35,13 +35,40 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
   await page.waitForSelector("#VWGLE_100");
 
   await page.click("#VWGLE_100");
-  await page.waitFor(3000);
+  await page.waitFor(2000);
 
   await page.click(
-    `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(4) > div >span`
+    `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr > td:nth-child(4)`
   );
-  await page.waitFor(2000);
+  await page.waitFor(1000);
   await page.click("#VWG_187");
+  await page.waitFor(500);
+  await page.keyboard.press("Tab");
+  await page.waitFor(500);
+  await page.keyboard.press("Tab");
+  await page.waitFor(500);
+  await page.keyboard.type(amsatver[0][0]);
+  await page.waitFor(100);
+  await page.keyboard.press("ArrowRight");
+  await page.waitFor(100);
+  await page.keyboard.type(amsatver[0][1]);
+  await page.waitFor(100);
+  await page.keyboard.press("ArrowRight");
+  await page.waitFor(100);
+  await page.keyboard.type(amsatver[0][2]);
+  await page.waitFor(100);
+  await page.keyboard.press("Tab");
+  await page.keyboard.type(amsatver[1][0]);
+  await page.waitFor(100);
+  await page.keyboard.press("ArrowRight");
+  await page.waitFor(100);
+  await page.keyboard.type(amsatver[1][1]);
+  await page.waitFor(100);
+  await page.keyboard.press("ArrowRight");
+  await page.waitFor(100);
+  await page.keyboard.type(amsatver[1][2]);
+  await page.waitFor(100);
+  await page.keyboard.press("Enter");
 
   // await page.click("#VWG_145");
   //await page.click("#VWG_194 > div > span");

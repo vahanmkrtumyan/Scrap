@@ -1,9 +1,9 @@
-const request = require("request-promise");
-const cheerio = require("cheerio");
-const fs = require("fs");
-const Json2csvParser = require("json2csv").Parser;
+// const request = require("request-promise");
+// const cheerio = require("cheerio");
+// const fs = require("fs");
+//const Json2csvParser = require("json2csv").Parser;
 const puppeteer = require("puppeteer");
-var json2xls = require("json2xls");
+//var json2xls = require("json2xls");
 
 const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
 
@@ -19,7 +19,14 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
     { username: "miparti1", password: "123456" },
     { username: "telectro1", password: "3215987" },
     { username: "tfurniture2", password: "3215987" },
-    { username: "tindustry2", password: "3215987" }
+    { username: "tindustry2", password: "3215987" },
+    { username: "tebes1", password: "3215987" },
+    { username: "servicestroy1", password: "123456" },
+    { username: "metalmontage1", password: "123456" },
+    { username: "energotechspasarkum1", password: "3215987" },
+    { username: "tcapital1", password: "3215987" },
+    { username: "cafeboulanger2", password: "3215987" },
+    { username: "solanum1", password: "7895123" }
   ];
 
   const page = await browser.newPage();
@@ -27,218 +34,260 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
   await page.goto(
     "https://internetbank.armbusinessbank.am/internetbank/MainForm.wgx"
   );
-  await page.waitForSelector("#TRG_32");
-  await page.type("#TRG_32", companies[0].username);
-  await page.type("#TRG_38", companies[0].password);
-  await page.keyboard.press("Enter");
 
-  await page.waitForSelector("#VWGLE_100");
+  for (c of companies) {
+    await page.waitForSelector("#TRG_32");
+    await page.type("#TRG_32", c.username);
+    await page.type("#TRG_38", c.password);
+    await page.keyboard.press("Enter");
 
-  await page.click("#VWGLE_100");
-  await page.waitFor(2000);
+    await page.waitForSelector("#VWGLE_100");
 
-  await page.click(
-    `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr > td:nth-child(4)`
-  );
-  await page.waitFor(1000);
-  await page.click("#VWG_187");
-  await page.waitFor(500);
-  await page.keyboard.press("Tab");
-  await page.waitFor(500);
-  await page.keyboard.press("Tab");
-  await page.waitFor(500);
-  await page.keyboard.type(amsatver[0][0]);
-  await page.waitFor(100);
-  await page.keyboard.press("ArrowRight");
-  await page.waitFor(100);
-  await page.keyboard.type(amsatver[0][1]);
-  await page.waitFor(100);
-  await page.keyboard.press("ArrowRight");
-  await page.waitFor(100);
-  await page.keyboard.type(amsatver[0][2]);
-  await page.waitFor(100);
-  await page.keyboard.press("Tab");
-  await page.keyboard.type(amsatver[1][0]);
-  await page.waitFor(100);
-  await page.keyboard.press("ArrowRight");
-  await page.waitFor(100);
-  await page.keyboard.type(amsatver[1][1]);
-  await page.waitFor(100);
-  await page.keyboard.press("ArrowRight");
-  await page.waitFor(100);
-  await page.keyboard.type(amsatver[1][2]);
-  await page.waitFor(100);
-  await page.keyboard.press("Enter");
+    await page.click("#VWGLE_100");
+    await page.waitFor(2100);
 
-  // await page.click("#VWG_145");
-  //await page.click("#VWG_194 > div > span");
+    await page.click(
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr`
+    );
+    await page.waitFor(1000);
+    await page.click("#VWG_187");
+    await page.waitFor(500);
+    await page.keyboard.press("Tab");
+    await page.waitFor(500);
+    await page.keyboard.press("Tab");
+    await page.waitFor(500);
+    await page.keyboard.type(amsatver[0][0]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[0][1]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[0][2]);
+    await page.waitFor(300);
+    await page.keyboard.press("Tab");
+    await page.keyboard.type(amsatver[1][0]);
+    await page.waitFor(300);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[1][1]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[1][2]);
+    await page.waitFor(200);
+    await page.keyboard.press("Enter");
 
-  //   let cur1 = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(4) > div >span`
-  //     ).innerText;
-  //   });
-  //   let cur1val = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(10) > div >span`
-  //     ).innerText;
-  //   });
-  //   let cur2 = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(2) > td:nth-child(4) > div >span`
-  //     ).innerText;
-  //   });
-  //   let cur2val = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(2) > td:nth-child(10) > div >span`
-  //     ).innerText;
-  //   });
-  //   let cur3 = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(3) > td:nth-child(4) > div >span`
-  //     ).innerText;
-  //   });
-  //   let cur3val = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(3) > td:nth-child(10) > div >span`
-  //     ).innerText;
-  //   });
-  //   let cur4 = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(4) > td:nth-child(4) > div >span`
-  //     ).innerText;
-  //   });
-  //   let cur4val = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(4) > td:nth-child(10) > div >span`
-  //     ).innerText;
-  //   });
+    await page.waitFor(1000);
+    await page.waitForSelector(
+      `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+    );
+    await page.click(
+      `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+    );
 
-  //   let Անվանում = await page.evaluate(() => {
-  //     return document.querySelector(
-  //       `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(1) > td:nth-child(6) > div >span`
-  //     ).innerText;
-  //   });
+    await page.waitForSelector("#VWGLE_100");
+    await page.click("#VWGLE_100");
 
-  //   let AMD = 0,
-  //     USD = 0,
-  //     RUB = 0,
-  //     EUR = 0;
+    //await page.waitFor(3000);
 
-  //   switch (cur1) {
-  //     case "AMD":
-  //       AMD = AMD + parseFloat(cur1val.replace(/,/g, ""));
-  //       break;
-  //     case "USD":
-  //       USD = USD + parseFloat(cur1val.replace(/,/g, ""));
-  //       break;
-  //     case "RUB":
-  //       RUB = RUB + parseFloat(cur1val.replace(/,/g, ""));
-  //       break;
-  //     case "EUR":
-  //       EUR = EUR + parseFloat(cur1val.replace(/,/g, ""));
-  //       break;
+    await page.waitForSelector(
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2)`
+    );
+    await page.waitFor(1000);
+    await page.click(
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2)`
+    );
+    await page.waitFor(1000);
+    await page.click("#VWG_187");
+    await page.waitFor(500);
+    await page.keyboard.press("Tab");
+    await page.waitFor(500);
+    await page.keyboard.press("Tab");
+    await page.waitFor(500);
+    await page.keyboard.type(amsatver[0][0]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[0][1]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[0][2]);
+    await page.waitFor(300);
+    await page.keyboard.press("Tab");
+    await page.keyboard.type(amsatver[1][0]);
+    await page.waitFor(300);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[1][1]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[1][2]);
+    await page.waitFor(200);
+    await page.keyboard.press("Enter");
 
-  //     default:
-  //     // code block
-  //   }
-  //   switch (cur2) {
-  //     case "AMD":
-  //       AMD = AMD + parseFloat(cur2val.replace(/,/g, ""));
-  //       break;
-  //     case "USD":
-  //       USD = USD + parseFloat(cur2val.replace(/,/g, ""));
-  //       break;
-  //     case "RUB":
-  //       RUB = RUB + parseFloat(cur2val.replace(/,/g, ""));
-  //       break;
-  //     case "EUR":
-  //       EUR = EUR + parseFloat(cur2val.replace(/,/g, ""));
-  //       break;
+    await page.waitFor(1000);
+    await page.waitForSelector(
+      `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+    );
+    await page.click(
+      `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+    );
 
-  //     default:
-  //     // code block
-  //   }
+    await page.waitForSelector("#VWGLE_100");
+    await page.click("#VWGLE_100");
 
-  //   switch (cur3) {
-  //     case "AMD":
-  //       AMD = AMD + parseFloat(cur3val.replace(/,/g, ""));
-  //       break;
-  //     case "USD":
-  //       USD = USD + parseFloat(cur3val.replace(/,/g, ""));
-  //       break;
-  //     case "RUB":
-  //       RUB = RUB + parseFloat(cur3val.replace(/,/g, ""));
-  //       break;
-  //     case "EUR":
-  //       EUR = EUR + parseFloat(cur3val.replace(/,/g, ""));
-  //       break;
+    //await page.waitFor(2000);
 
-  //     default:
-  //     // code block
-  //   }
-  //   switch (cur4) {
-  //     case "AMD":
-  //       AMD = AMD + parseFloat(cur4val.replace(/,/g, ""));
-  //       break;
-  //     case "USD":
-  //       USD = USD + parseFloat(cur4val.replace(/,/g, ""));
-  //       break;
-  //     case "RUB":
-  //       RUB = RUB + parseFloat(cur4val.replace(/,/g, ""));
-  //       break;
-  //     case "EUR":
-  //       EUR = EUR + parseFloat(cur4val.replace(/,/g, ""));
-  //       break;
+    await page.waitForSelector(
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2)`
+    );
+    await page.waitFor(1000);
+    await page.click(
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(3)`
+    );
+    await page.waitFor(1000);
+    await page.click("#VWG_187");
+    await page.waitFor(500);
+    await page.keyboard.press("Tab");
+    await page.waitFor(500);
+    await page.keyboard.press("Tab");
+    await page.waitFor(500);
+    await page.keyboard.type(amsatver[0][0]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[0][1]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[0][2]);
+    await page.waitFor(300);
+    await page.keyboard.press("Tab");
+    await page.keyboard.type(amsatver[1][0]);
+    await page.waitFor(300);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[1][1]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[1][2]);
+    await page.waitFor(200);
+    await page.keyboard.press("Enter");
 
-  //     default:
-  //     // code block
-  //   }
+    await page.waitFor(1000);
+    await page.waitForSelector(
+      `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+    );
+    await page.click(
+      `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+    );
 
-  //   if (c.username === "telectro1") {
-  //     let cur5 = await page.evaluate(() => {
-  //       return (
-  //         document.querySelector(
-  //           `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(5) > td:nth-child(4) > div >span`
-  //         ).innerText || 0
-  //       );
-  //     });
-  //     let cur5val = await page.evaluate(() => {
-  //       return (
-  //         document.querySelector(
-  //           `table[class= "cb58 cb54 cct32"] > tbody > tr:nth-child(5) > td:nth-child(10) > div >span`
-  //         ).innerText || 0
-  //       );
-  //     });
+    await page.waitForSelector("#VWGLE_100");
+    await page.click("#VWGLE_100");
 
-  //     switch (cur5) {
-  //       case "AMD":
-  //         AMD = AMD + parseFloat(cur5val.replace(/,/g, ""));
-  //         break;
-  //       case "USD":
-  //         USD = USD + parseFloat(cur5val.replace(/,/g, ""));
-  //         break;
-  //       case "RUB":
-  //         RUB = RUB + parseFloat(cur5val.replace(/,/g, ""));
-  //         break;
-  //       case "EUR":
-  //         EUR = EUR + parseFloat(cur5val.replace(/,/g, ""));
-  //         break;
+    //await page.waitFor(2000);
 
-  //       default:
-  //       // code block
-  //     }
-  //   }
+    await page.waitForSelector(
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2)`
+    );
+    await page.waitFor(1000);
+    await page.click(
+      `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(4)`
+    );
+    await page.waitFor(1000);
+    await page.click("#VWG_187");
+    await page.waitFor(500);
+    await page.keyboard.press("Tab");
+    await page.waitFor(500);
+    await page.keyboard.press("Tab");
+    await page.waitFor(500);
+    await page.keyboard.type(amsatver[0][0]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[0][1]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[0][2]);
+    await page.waitFor(300);
+    await page.keyboard.press("Tab");
+    await page.keyboard.type(amsatver[1][0]);
+    await page.waitFor(300);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[1][1]);
+    await page.waitFor(200);
+    await page.keyboard.press("ArrowRight");
+    await page.waitFor(200);
+    await page.keyboard.type(amsatver[1][2]);
+    await page.waitFor(200);
+    await page.keyboard.press("Enter");
 
-  //   hashivner.push({Անվանում, AMD, USD, RUB, EUR})
+    await page.waitFor(1000);
+    await page.waitForSelector(
+      `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+    );
+    await page.click(
+      `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+    );
 
-  // var xls = json2xls(hashivner);
-  // fs.writeFileSync('data.xlsx', xls, 'binary');
-  // fs.writeFileSync('./data.json', JSON.stringify(hashivner), 'UTF-8');
-  //   page.mainFrame().evaluate()
-  // await page.mainFrame()
-  // .waitForSelector("#TRG_133");
+    if (c.username === "telectro1") {
+      await page.waitForSelector("#VWGLE_100");
+      await page.click("#VWGLE_100");
 
-  // await page.screenshot({ path: "example.png" });
-  // await browser.close();
+      await page.waitForSelector(
+        `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2)`
+      );
+      await page.waitFor(1000);
+      await page.click(
+        `div[id = "Contained167"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(5)`
+      );
+      await page.waitFor(1000);
+      await page.click("#VWG_187");
+      await page.waitFor(500);
+      await page.keyboard.press("Tab");
+      await page.waitFor(500);
+      await page.keyboard.press("Tab");
+      await page.waitFor(500);
+      await page.keyboard.type(amsatver[0][0]);
+      await page.waitFor(200);
+      await page.keyboard.press("ArrowRight");
+      await page.waitFor(200);
+      await page.keyboard.type(amsatver[0][1]);
+      await page.waitFor(200);
+      await page.keyboard.press("ArrowRight");
+      await page.waitFor(200);
+      await page.keyboard.type(amsatver[0][2]);
+      await page.waitFor(300);
+      await page.keyboard.press("Tab");
+      await page.keyboard.type(amsatver[1][0]);
+      await page.waitFor(300);
+      await page.keyboard.press("ArrowRight");
+      await page.waitFor(200);
+      await page.keyboard.type(amsatver[1][1]);
+      await page.waitFor(200);
+      await page.keyboard.press("ArrowRight");
+      await page.waitFor(200);
+      await page.keyboard.type(amsatver[1][2]);
+      await page.waitFor(200);
+      await page.keyboard.press("Enter");
+
+      await page.waitFor(1000);
+      await page.waitForSelector(
+        `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+      );
+      await page.click(
+        `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
+      );
+    }
+    await page.waitFor(500);
+    await page.click("#VWG_145");
+  }
+  await browser.close();
 })();

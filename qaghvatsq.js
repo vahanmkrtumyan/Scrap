@@ -86,7 +86,7 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
     await page.click(
       `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
     );
-
+    await page.waitFor(200);
     await page.waitForSelector("#VWGLE_100");
     await page.click("#VWGLE_100");
 
@@ -136,7 +136,7 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
     await page.click(
       `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
     );
-
+    await page.waitFor(200);
     await page.waitForSelector("#VWGLE_100");
     await page.click("#VWGLE_100");
 
@@ -186,7 +186,7 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
     await page.click(
       `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
     );
-
+    await page.waitFor(200);
     await page.waitForSelector("#VWGLE_100");
     await page.click("#VWGLE_100");
 

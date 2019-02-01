@@ -19,7 +19,14 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
     { username: "miparti1", password: "123456" },
     { username: "telectro1", password: "3215987" },
     { username: "tfurniture2", password: "3215987" },
-    { username: "tindustry2", password: "3215987" }
+    { username: "tindustry2", password: "3215987" },
+    { username: "tebes1", password: "3215987" },
+    { username: "servicestroy1", password: "123456" },
+    { username: "metalmontage1", password: "123456" },
+    { username: "energotechspasarkum1", password: "3215987" },
+    { username: "tcapital1", password: "3215987" },
+    { username: "cafeboulanger2", password: "3215987" },
+    { username: "solanum1", password: "7895123" }
   ];
 
   const page = await browser.newPage();

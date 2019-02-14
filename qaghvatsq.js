@@ -78,11 +78,10 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
       "#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(1)"
     );
     await page.waitFor(300);
-<<<<<<< HEAD
-=======
+
     await page.keyboard.press("Tab");
     await page.waitFor(300);
->>>>>>> b5a5dc756f16d0f1a0ff9b745341c3aa857c8434
+
     await page.keyboard.type(amsatver[1][0]);
     await page.waitFor(300);
     await page.click(
@@ -144,11 +143,10 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
       "#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(1)"
     );
     await page.waitFor(300);
-<<<<<<< HEAD
-=======
+
     await page.keyboard.press("Tab");
     await page.waitFor(300);
->>>>>>> b5a5dc756f16d0f1a0ff9b745341c3aa857c8434
+
     await page.keyboard.type(amsatver[1][0]);
     await page.waitFor(300);
     await page.click(
@@ -211,11 +209,9 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
       "#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(1)"
     );
     await page.waitFor(300);
-<<<<<<< HEAD
-=======
+
     await page.keyboard.press("Tab");
     await page.waitFor(300);
->>>>>>> b5a5dc756f16d0f1a0ff9b745341c3aa857c8434
     await page.keyboard.type(amsatver[1][0]);
     await page.waitFor(300);
     await page.click(
@@ -278,11 +274,9 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
       "#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(1)"
     );
     await page.waitFor(300);
-<<<<<<< HEAD
-=======
+
     await page.keyboard.press("Tab");
     await page.waitFor(300);
->>>>>>> b5a5dc756f16d0f1a0ff9b745341c3aa857c8434
     await page.keyboard.type(amsatver[1][0]);
     await page.waitFor(300);
     await page.click(
@@ -340,18 +334,18 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
       await page.waitFor(200);
       await page.keyboard.type(amsatver[0][2]);
       await page.waitFor(200);
-      ("#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(1)");
+      await page.click("#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(1)");
       await page.waitFor(300);
 
       await page.keyboard.press("Tab");
       await page.waitFor(300);
       await page.keyboard.type(amsatver[1][0]);
       await page.waitFor(300);
-      ("#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(3)");
+      await page.click("#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(3)");
       await page.waitFor(200);
       await page.keyboard.type(amsatver[1][1]);
       await page.waitFor(200);
-      ("#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(5)");
+      await page.click("#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(6) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(5)");
       await page.waitFor(200);
       await page.keyboard.type(amsatver[1][2]);
       await page.waitFor(200);

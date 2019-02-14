@@ -16,17 +16,15 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
   });
 
   let companies = [
-    { username: "miparti1", password: "123456" },
-    { username: "telectro1", password: "3215987" },
-    { username: "tfurniture2", password: "3215987" },
-    { username: "tindustry2", password: "3215987" },
-    { username: "tebes1", password: "3215987" },
-    { username: "servicestroy1", password: "123456" },
-    { username: "metalmontage1", password: "123456" },
-    { username: "energotechspasarkum1", password: "3215987" },
-    { username: "tcapital1", password: "3215987" },
-    { username: "cafeboulanger2", password: "3215987" },
-    { username: "solanum1", password: "7895123" }
+    { username: "armholding2", password: "9875321" },
+    { username: "arminvest2", password: "7895123" },
+    { username: "armstroikom2", password: "7895123" },
+    { username: "energostroi2", password: "7895123" },
+    { username: "inginering2", password: "8530112" },
+    { username: "stroyproekt2", password: "7895123" },
+    { username: "severstroy2", password: "7895123" },
+    { username: "exportfinance3", password: "7895123" },
+    { username: "pharmco2", password: "124578" }
   ];
 
   const page = await browser.newPage();
@@ -287,7 +285,7 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
       `div[id = "Contained85"] > div > div > div > div > div:nth-child(3) > div > div > div > div:nth-child(2) > div > div > div > div:nth-child(3) > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div:nth-child(2) > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(4)`
     );
 
-    if (c.username === "telectro1") {
+    if (c.username === "armholding2") {
       await page.waitForSelector("#VWGLE_100");
       await page.waitFor(1000);
       await page.click("#VWGLE_100");

@@ -35,15 +35,15 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
 
     for (i of hashivner) {
       await page.waitForSelector(
-        `div[id = "Contained168"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2)`
+        `div[id = "Contained169"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(2)`
       );
       await page.waitFor(1000);
       await page.click(
-        `div[id = "Contained168"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(${i})`
+        `div[id = "Contained169"] > div > div:nth-child(2) > div:nth-child(2) > div > table > tbody > tr:nth-child(${i})`
       );
 
       await page.waitFor(2000);
-      await page.click("#VWG_188");
+      await page.click("#VWG_189");
       await page.waitForSelector(
         `#VWGE_WindowsBox > div > div > div > div > div > div > div div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > div > div > div:nth-child(3) > div:nth-child(3) > div > div > div > div > div > div > div > div > div:nth-child(2) > table > tbody > tr > td > div > table > tbody > tr > td:nth-child(1)`
       );
@@ -97,7 +97,7 @@ const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
     }
 
     await page.waitFor(500);
-    await page.click("#VWG_145");
+    await page.click("#VWG_146");
   }
   await browser.close();
 })();

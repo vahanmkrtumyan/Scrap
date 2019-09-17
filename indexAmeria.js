@@ -5,8 +5,6 @@ const fs = require("fs");
 const puppeteer = require("puppeteer");
 var json2xls = require("json2xls");
 
-const URL = "https://internetbank.armbusinessbank.am/InternetBank/MainForm.wgx";
-
 (async () => {
   let hashivner = [];
 

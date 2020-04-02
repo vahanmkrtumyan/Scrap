@@ -5,8 +5,8 @@ const puppeteer = require("puppeteer");
   let companies = [
     {
       username: "BRIGHT_IDEAS_ID",
-      password: "Belilanmer2!",
-      key: "SECRETKEY.PSW"
+      password: "Belilanmer6784!",
+      key: "BrightIdeas.PSW"
     }
   ];
 
